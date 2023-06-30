@@ -18,7 +18,7 @@ class Question(BaseModel):
     answer: str
 
 
-@app.get("/{year}/{question_index}", response_model=List[Question])
+@app.get("/{year}/{question_index}")
 def get_question_by_year_and_index(year: int = Path(ge=min(get_all_years()), le=max(get_all_years())), question_index: int = Path(ge=0)):
 
     return get_new_question(year, question_index)
